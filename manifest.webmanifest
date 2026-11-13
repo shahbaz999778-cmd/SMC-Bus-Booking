@@ -1,0 +1,9 @@
+{
+  "name": "SMC Shahbaz-e-Al Madina Coach",
+  "short_name": "SMC",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fa",
+  "theme_color": "#102b52",
+  "description": "SMC bus booking starter app"
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102b52">
+  <meta name="description" content="SMC Shahbaz-e-Al Madina Coach bus booking app">
+  <title>SMC | Shahbaz-e-Al Madina Coach</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/smc-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="SMC Home">
+      <span class="brand-mark">SMC</span>
+      <span><b>SHAHBAZ-E-AL MADINA</b><small>COACH SERVICE</small></span>
+    </a>
+    <button class="icon-btn" id="historyNav" aria-label="Booking history">Tickets</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">TRAVEL WITH COMFORT</span>
+        <h1>Your journey.<br><em>Your comfort.</em></h1>
+        <p>Book your seat with SMC in a few simple steps.</p>
+      </div>
+      <div class="coach-art" aria-hidden="true">
+        <div class="road"></div><div class="bus"><div class="bus-window"></div><div class="bus-front"></div><div class="wheel one"></div><div class="wheel two"></div></div>
+      </div>
+    </section>
+
+    <section class="panel search-panel" id="searchPanel">
+      <div class="section-heading"><div><span class="eyebrow">PLAN YOUR TRIP</span><h2>Find a bus</h2></div><span class="pill">SMC Booking</span></div>
+      <form id="searchForm">
+        <div class="field-grid">
+          <label>From
+            <select id="from" required></select>
+          </label>
+          <button class="swap-btn" id="swapRoutes" type="button" aria-label="Swap locations">⇅</button>
+          <label>To
+            <select id="to" required></select>
+          </label>
+          <label>Journey date
+            <input id="journeyDate" type="date" required>
+          </label>
+          <label>Passengers
+            <select id="passengers">
+              <option value="1">1 Passenger</option><option value="2">2 Passengers</option><option value="3">3 Passengers</option><option value="4">4 Passengers</option><option value="5">5 Passengers</option>
+            </select>
+          </label>
+        </div>
+        <button class="primary-btn full" type="submit">Search buses <span>→</span></button>
+      </form>
+      <p class="fine-print">Routes shown are the selected SMC service network. Timings and fares in this starter build are sample data until the operator adds confirmed schedules.</p>
+    </section>
+
+    <section class="results-section hidden" id="resultsSection">
+      <div class="section-heading"><div><span class="eyebrow">AVAILABLE OPTIONS</span><h2>Choose your bus</h2></div><button class="text-btn" id="editSearch">Edit search</button></div>
+      <div id="busResults" class="bus-list"></div>
+    </section>
+
+    <section class="panel hidden" id="seatPanel">
+      <div class="section-heading"><div><span class="eyebrow">SELECT YOUR PLACE</span><h2>Choose seats</h2></div><span class="pill" id="seatCountLabel">0 selected</span></div>
+      <div class="seat-legend"><span><i class="seat-dot available"></i> Available</span><span><i class="seat-dot selected"></i> Selected</span><span><i class="seat-dot booked"></i> Unavailable</span></div>
+      <div class="driver-label">FRONT / DRIVER</div>
+      <div class="seat-grid" id="seatGrid"></div>
+      <div class="seat-summary"><span id="seatTotal">Select your seats</span><button class="primary-btn" id="continuePassenger" disabled>Continue →</button></div>
+    </section>
+
+    <section class="panel hidden" id="passengerPanel">
+      <div class="section-heading"><div><span class="eyebrow">BOOKING DETAILS</span><h2>Passenger information</h2></div></div>
+      <form id="passengerForm" class="stack">
+        <label>Passenger full name<input id="passengerName" autocomplete="name" required placeholder="Enter full name"></label>
+        <label>Mobile number<input id="passengerPhone" type="tel" inputmode="tel" required pattern="[0-9+ ()-]{10,18}" placeholder="03XXXXXXXXX"></label>
+        <label>Payment method<select id="paymentMethod"><option value="Easypaisa">Easypaisa</option><option value="Meezan Bank">Meezan Bank</option><option value="Pay at counter">Pay at counter</option></select></label>
+        <div class="notice"><b>Payment information</b><p>Transfer details and online payment verification are not connected in this starter version. Confirm payment directly with SMC before travelling.</p></div>
+        <div class="seat-summary"><span id="bookingTotal"></span><button class="primary-btn" type="submit">Confirm demo booking</button></div>
+      </form>
+    </section>
+
+    <section class="panel hidden" id="ticketPanel">
+      <div class="success-mark">✓</div><span class="eyebrow">DEMO TICKET CREATED</span><h2>Your booking summary</h2>
+      <div id="ticketDetails" class="ticket"></div>
+      <div class="button-row"><button class="primary-btn" id="downloadTicket">Download ticket</button><button class="secondary-btn" id="newBooking">New booking</button></div>
+      <p class="fine-print">This is a locally saved demo booking, not a confirmed seat reservation with a live SMC server.</p>
+    </section>
+
+    <section class="panel hidden" id="historyPanel">
+      <div class="section-heading"><div><span class="eyebrow">YOUR RECORDS</span><h2>Booking history</h2></div><button class="text-btn" id="closeHistory">Close</button></div>
+      <div id="historyList"></div>
+    </section>
+
+    <section class="contact-strip">
+      <div><span class="eyebrow">NEED HELP?</span><h3>Contact SMC Coach Service</h3><p>Ask the operator to confirm route, departure time, fare and payment before travel.</p></div>
+      <span class="contact-icon">SMC</span>
+    </section>
+  </main>
+
+  <footer><b>SMC</b> · S.M.C SHAHBAZ-E-AL MADINA COACH <small>Starter app · Version 1.0</small></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
